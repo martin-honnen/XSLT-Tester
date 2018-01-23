@@ -1,0 +1,159 @@
+@(title: String)(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title> @title </title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/github.css")">
+    <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+</head>
+<body>
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="@routes.Application.index()"> <i class= "fa fa-cogs fa-lg"></i> @title </a>
+            </div>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="nav navbar-nav">
+                    <li> <a id="new"> <i class= "fa fa-file fa-lg"></i> <span> New </span> </a> </li>
+                    <li> <a id="save"> <i class= "fa fa-save fa-lg"></i> <span> Save / Update </span> </a> </li>
+                    <li> <a id="autotransform"> <i class= "fa fa-check-square-o fa-lg"></i> Auto-transform </a> </li>
+                    <li> <a id="transform"> <i class= "fa fa-cog fa-lg"></i> Transform </a> </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class= "fa fa-share"></i> Share <b class="caret"></b> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a class="addthis_button_facebook">
+                                    <i class= "fa fa-facebook-square fa-lg"></i> Facebook
+                                </a>
+                            </li>
+                              <li>
+                                <a class="addthis_button_twitter">
+                                    <i class= "fa fa-twitter-square fa-lg"></i> Twitter
+                                </a>
+                            </li>
+                              <li>
+                                <a class="addthis_button_google_plusone_share">
+                                    <i class= "fa fa-google-plus-square fa-lg"></i> Google+
+                                </a>
+                            </li>
+                              <li>
+                                <a class="addthis_button_linkedin">
+                                    <i class= "fa fa-linkedin-square fa-lg"></i> LinkedIn
+                                </a>
+                            </li>
+                            <li> <a id="copyclipboard" data-clipboard-text=""> <i class= "fa fa-copy fa-lg"></i> Clipboard </a> </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-cogs fa-lg"></i> Engine: <span id="engine-dropdown"></span><b class="caret"></b> </a>
+                        <ul class="dropdown-menu" id="engines" role="menu">
+                            <li>
+                                <a data-engine="Saxon98HE">Saxon 9.8.0.7 HE</a>
+                            </li>
+                            <li>
+                                <a data-engine="Saxon97HE">Saxon 9.7.0.21 HE</a>
+                            </li>
+                            <li>
+                                <a data-engine="Saxon6">Saxon 6.5.5</a>
+                            </li>
+                            <li>
+                                <a data-engine="Xalan2">Xalan 2.7.1</a>
+                            </li>
+                            <li>
+                                <a data-engine="Browser">client-side processor</a>
+                            </li>                            
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-question fa-lg"></i> Help <b class="caret"></b> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="http://www.w3.org/TR/xslt" target="_blank">
+                                    <img width="18px" src="http://www.w3.org/favicon.ico"/>
+                                    XSLT 3.0 Spec
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.w3.org/TR/xslt20" target="_blank">
+                                    <img width="18px" src="http://www.w3.org/favicon.ico"/>
+                                    XSLT 2.0 Spec
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.w3.org/TR/xslt-10/" target="_blank">
+                                    <img width="18px" src="http://www.w3.org/favicon.ico"/>
+                                    XSLT 1.0 Spec
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="http://www.saxonica.com/documentation/" target="_blank">
+                                    <img width="18px" src="http://www.saxonica.com/favicon.ico"/>
+                                    Saxonica documentation
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.xsltfunctions.com/" target="_blank">
+                                    <img width="18px" src="http://www.xsltfunctions.com/favicon.ico"/>
+                                    XSLT Functions
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <a href="https://github.com/martin-honnen/XSLT-tester"> <i class= "fa fa-github fa-lg"></i> Fork me! </a> </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-info fa-lg"></i> About <b class="caret"></b> </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="https://twitter.com/XSLT_knowmad" target="_blank" title="XSLT knowmad">
+                                    Brought to you by @@XSLT_knowmad
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.saxonica.com" target="_blank" title="XSLT and XQuery Processing">
+                                    <img width="18px" src="http://www.saxonica.com/favicon.ico"/>
+                                    Saxonica.com
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="alert alert-error hide fade in" id="alert"> <a class="close" data-dismiss="alert" href="#"> &times; </a>
+        <h4></h4>
+        <p></p>
+    </div>
+    <div class="content-container">
+        @content
+    </div>
+    <script src="@routes.Application.jsRoutes()" type="text/javascript"></script>
+    <script src="@routes.Assets.at("javascripts/zero-clipboard.min.js")"></script>
+
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/xregexp/2.0.0/xregexp-min.js"></script>
+
+    <script src="@routes.Assets.at("javascripts/main.js")" type="text/javascript" charset="utf-8"></script>
+
+
+</body>
+</html>

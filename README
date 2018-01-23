@@ -1,0 +1,30 @@
+XSLT Tester
+====================
+
+Transform your XML with XSLT online
+
+Choose between the following engines:
+- Saxon 9.8.0.7 HE (XSLT 3),
+- Saxon 9.7.0.21 HE (XSLT 2),
+- Saxon 6.5.5 (XSLT 1),
+- Xalan 2.7.1 (XSLT 1)
+- browser's engine (as long as API is exposed to Javascript via XSLTProcessor (Mozilla, Chrome, Edge or it is IE using MSXML)
+
+
+Changelog
+====================
+
+Version 2.1
+- Updating to Saxon 9.8 HE to have XSLT 3 standard support
+- Updating to Saxon 9.7 HE to have XSLT 2 standard support
+- Remove old Saxon EE
+- add browser engine for XSLT 1
+
+Version 1.2
+- Preview of PDF or HTML when results are results are in the correct format / doctype
+
+Version 1.1
+- Added positibility to switch to different XSLT engines
+
+Version 1.0
+- Initial release
