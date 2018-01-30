@@ -4,19 +4,19 @@ XSLT Tester
 Transform your XML with XSLT online
 
 Choose between the following engines:
-- Saxon 9.8.0.7 HE (XSLT 3),
-- Saxon 9.7.0.21 HE (XSLT 2),
+- Saxon 9.8.0.7 HE (XSLT 3 and backwards compatibility mode for XSLT 1),
 - Saxon 6.5.5 (XSLT 1),
 - Xalan 2.7.1 (XSLT 1)
-- browser's engine (as long as API is exposed to Javascript via XSLTProcessor (Mozilla, Chrome, Edge or it is IE using MSXML)
+- browser's engine (as long as API is exposed to Javascript via XSLTProcessor (Mozilla, Chrome, Edge or it is IE using MSXML))
 
 
 Changelog
 ====================
 
-Version 2.1
+Version 2.2
 - Updating to Saxon 9.8 HE to have XSLT 3 standard support
-- Updating to Saxon 9.7 HE to have XSLT 2 standard support
+- Removing Saxon 9.7 as existing solution with JarClassLoader to allow side-by-side use of Saxon 9.8 and 9.7 did not allow any of
+  them to properly work (loading of various XML files for Unicode regular expression support failed)
 - Remove old Saxon EE
 - add browser engine for XSLT 1
 
