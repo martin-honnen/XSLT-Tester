@@ -15,6 +15,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
+import java.net.URL;
+import java.net.URLClassLoader;
 
 public class Saxon9HEPlugin implements TransformerPlugin {
 
@@ -22,8 +24,12 @@ public class Saxon9HEPlugin implements TransformerPlugin {
 
     private static final String TRANSFORMER_FACTORY_CLASS_NAME = "net.sf.saxon.TransformerFactoryImpl";
 
-    private static final ClassLoader saxon9HEClassLoader = new JarClassLoader(new InputStream[]{
-            Play.application().resourceAsStream("public/plugins/"+VERSION+"/"+VERSION+".jar")
+//    private static final ClassLoader saxon9HEClassLoader = new JarClassLoader(new InputStream[]{
+//            Play.application().resourceAsStream("public/plugins/"+VERSION+"/"+VERSION+".jar")
+//    }, Saxon9HEPlugin.class.getClassLoader());
+    
+    private static final ClassLoader saxon9HEClassLoader = new URLClassLoader(new URL[]{
+            Play.application().resource("public/plugins/"+VERSION+"/"+VERSION+".jar")
     }, Saxon9HEPlugin.class.getClassLoader());
     
     private static TransformerFactory getSecureTransformerFactory() throws IllegalArgumentException, TransformerConfigurationException
