@@ -18,11 +18,14 @@ public class Saxon6Plugin implements TransformerPlugin{
     private static final String STANDARD_ERROR_LISTENER_CLASS_NAME = "com.icl.saxon.StandardErrorListener";
     private static final String SET_ERROR_OUTPUT_METHOD = "setErrorOutput";
 
-    private static final ClassLoader saxon6ClassLoader = new JarClassLoader(new InputStream[]{
-            Play.application().resourceAsStream("public/plugins/"+VERSION+"/"+VERSION+".jar")
+//    private static final ClassLoader saxon6ClassLoader = new JarClassLoader(new InputStream[]{
+//            Play.application().resourceAsStream("public/plugins/"+VERSION+"/"+VERSION+".jar")
+//    }, Saxon6Plugin.class.getClassLoader());
+
+    private static final ClassLoader saxon6ClassLoader = new URLClassLoader(new URL[]{
+            Play.application().resource("public/plugins/"+VERSION+"/"+VERSION+".jar")
     }, Saxon6Plugin.class.getClassLoader());
-
-
+    
     @Override
     public Transformer newTransformer() throws TransformerConfigurationException {
         return TransformerFactory.newInstance(TRANSFORMER_FACTORY_CLASS_NAME, saxon6ClassLoader).newTransformer();
