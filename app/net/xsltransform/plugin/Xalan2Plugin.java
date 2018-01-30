@@ -18,11 +18,18 @@ public class Xalan2Plugin implements TransformerPlugin{
 
     public static final String CLASS_NAME = "org.apache.xalan.processor.TransformerFactoryImpl";
 
-    private static final ClassLoader xalan2ClassLoader = new JarClassLoader(new InputStream[]{
-            Play.application().resourceAsStream("public/plugins/"+VERSION+"/xalan.jar"),
-            Play.application().resourceAsStream("public/plugins/"+VERSION+"/serializer.jar"),
-            Play.application().resourceAsStream("public/plugins/"+VERSION+"/xercesImpl.jar"),
-            Play.application().resourceAsStream("public/plugins/"+VERSION+"/xml-apis.jar")
+//    private static final ClassLoader xalan2ClassLoader = new JarClassLoader(new InputStream[]{
+//            Play.application().resourceAsStream("public/plugins/"+VERSION+"/xalan.jar"),
+//            Play.application().resourceAsStream("public/plugins/"+VERSION+"/serializer.jar"),
+//            Play.application().resourceAsStream("public/plugins/"+VERSION+"/xercesImpl.jar"),
+//            Play.application().resourceAsStream("public/plugins/"+VERSION+"/xml-apis.jar")
+//    }, Xalan2Plugin.class.getClassLoader());
+    
+    private static final ClassLoader xalan2ClassLoader = new URLClassLoader(new URL[]{
+            Play.application().resource("public/plugins/"+VERSION+"/xalan.jar"),
+            Play.application().resource("public/plugins/"+VERSION+"/serializer.jar"),
+            Play.application().resource("public/plugins/"+VERSION+"/xercesImpl.jar"),
+            Play.application().resource("public/plugins/"+VERSION+"/xml-apis.jar")
     }, Xalan2Plugin.class.getClassLoader());
 
     @Override
